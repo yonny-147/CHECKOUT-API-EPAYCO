@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import fetch from 'node-fetch';
 
 //URL DE LA API DE EPAYCO
