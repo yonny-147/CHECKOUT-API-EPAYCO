@@ -1,11 +1,19 @@
+import 'dotenv/config';
 import fetch from 'node-fetch';
 
-const PUBLIC_KEY = process.env.PUBLIC_KEY;
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const URL_APIFY = process.env.URL_APIFY;
+//URL DE LA API DE EPAYCO
+const URL_APIFY="https://apify.epayco.co"
+
+//CLAVES DE ACCESO A LA API DE EPAYCO
+const PUBLIC_KEY="PUBLIC_KEY"
+const PRIVATE_KEY="PRIVATE_KEY"
 
 export async function login() {
   try {
+
+    if (!URL_APIFY) {
+      throw new Error('URL_APIFY no está definida');
+    }
     let login = Buffer.from(`${PUBLIC_KEY}:${PRIVATE_KEY}`).toString('base64');
 
     let requestOptions = {
@@ -41,8 +49,6 @@ export async function createSession(token, params) {
       body: JSON.stringify(params),
       redirect: 'follow'
     };
-
-    console.log('Request Options:', requestOptions); // Agregar detalles de depuración
 
     let response = await fetch(`${URL_APIFY}/payment/session/create`, requestOptions);
     let result = await response.json();

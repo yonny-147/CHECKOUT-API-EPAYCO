@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutButton.addEventListener('click', () => {
             const params_transaction = {
                 name: "New Checkout",
-                invoice: "prueba 124",
+                invoice: "prueba 125",
                 description: "Nueva implementacion de seguridad",
                 currency: "cop",
                 amount: "20000",

@@ -1,10 +1,12 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { login, createSession } from './api.js';
+import { login, createSession } from '../api/api.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000 //AGREGA TU PUERTO AQUI;
+
+
 
 app.use(cors()); // Habilitar CORS para todas las rutas
 app.use(express.json());
